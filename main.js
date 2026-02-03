@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const serviceData = [
-        { name: '모두의 주차장', life: 3, public: 1, data: 3, tech: 2, grade: 'A' },
-        { name: '왓섭 (구독관리)', life: 3, public: 1, data: 2, tech: 3, grade: 'A' },
-        { name: '증권플러스', life: 3, public: 2, data: 3, tech: 3, grade: 'S' },
-        { name: '뮤직카우', life: 2, public: 1, data: 2, tech: 2, grade: 'B' },
-        { name: '닥터나우', life: 3, public: 2, data: 2, tech: 2, grade: 'A' },
-        { name: '웰컴 (웰컴저축은행)', life: 2, public: 3, data: 3, tech: 3, grade: 'S' },
-        { name: '어글리어스', life: 2, public: 3, data: 2, tech: 1, grade: 'B' },
-        { name: '오픈플랜 (토글)', life: 2, public: 2, data: 3, tech: 3, grade: 'A' },
-        { name: '빅밸류 (부동산데이터)', life: 1, public: 3, data: 3, tech: 3, grade: 'A' },
-        { name: '리브로피아', life: 1, public: 3, data: 3, tech: 3, grade: 'C' },
-        { name: '뱅샐 (뱅크샐러드)', life: 3, public: 3, data: 3, tech: 3, grade: 'S' },
-        { name: '스클럽 (영수증관리)', life: 3, public: 1, data: 3, tech: 2, grade: 'A' },
+        { no: 1, category: '교통', name: '모두의 주차장', life: 3, public: 1, data: 3, tech: 2, grade: 'A' },
+        { no: 2, category: '금융', name: '왓섭 (구독관리)', life: 3, public: 1, data: 2, tech: 3, grade: 'A' },
+        { no: 3, category: '금융', name: '증권플러스', life: 3, public: 2, data: 3, tech: 3, grade: 'S' },
+        { no: 4, category: '엔터', name: '뮤직카우', life: 2, public: 1, data: 2, tech: 2, grade: 'B' },
+        { no: 5, category: '의료', name: '닥터나우', life: 3, public: 2, data: 2, tech: 2, grade: 'A' },
+        { no: 6, category: '금융', name: '웰컴 (웰컴저축은행)', life: 2, public: 3, data: 3, tech: 3, grade: 'S' },
+        { no: 7, category: '쇼핑', name: '어글리어스', life: 2, public: 3, data: 2, tech: 1, grade: 'B' },
+        { no: 8, category: '금융', name: '오픈플랜 (토글)', life: 2, public: 2, data: 3, tech: 3, grade: 'A' },
+        { no: 9, category: '부동산', name: '빅밸류 (부동산데이터)', life: 1, public: 3, data: 3, tech: 3, grade: 'A' },
+        { no: 10, category: '도서', name: '리브로피아', life: 1, public: 3, data: 3, tech: 3, grade: 'C' },
+        { no: 11, category: '금융', name: '뱅샐 (뱅크샐러드)', life: 3, public: 3, data: 3, tech: 3, grade: 'S' },
+        { no: 12, category: '금융', name: '스클럽 (영수증관리)', life: 3, public: 1, data: 3, tech: 2, grade: 'A' },
     ];
 
     const tableBody = document.getElementById('service-table-body');
@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         serviceData.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td>${item.no}</td>
+                <td>${item.category}</td>
                 <td>${item.name}</td>
                 <td>${renderStars(item.life)}</td>
                 <td>${renderStars(item.public)}</td>

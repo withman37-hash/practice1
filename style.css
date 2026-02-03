@@ -91,12 +91,14 @@ body {
 
 .list-table th, .list-table td {
     padding: 12px 15px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
 }
 
 .list-table th {
     background-color: #f8f9fa;
+    font-weight: bold;
 }
 
 
