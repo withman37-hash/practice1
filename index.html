@@ -99,12 +99,23 @@
             <h2>제휴 제안 메일 발송</h2>
             <form id="email-form">
                 <div class="form-group">
+                    <label for="email-recipient">받는이</label>
+                    <input type="email" id="email-recipient" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-sender">보내는이</label>
+                    <input type="email" id="email-sender" value="b2b@kakaobank.com" required>
+                </div>
+                <div class="form-group">
                     <label for="email-subject">제목</label>
-                    <input type="text" id="email-subject" required>
+                    <input type="text" id="email-subject" value="카카오뱅크 B2B 사업 제휴 제안" required>
                 </div>
                 <div class="form-group">
                     <label for="email-body">내용</label>
-                    <textarea id="email-body" rows="8" required></textarea>
+                    <textarea id="email-body" rows="8" required>안녕하세요!
+카카오뱅크 B2B 사업 제휴 제안을 드립니다.
+
+감사합니다.</textarea>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">발송</button>
