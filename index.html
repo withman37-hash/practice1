@@ -11,7 +11,7 @@
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
-                <a href="#">Link+</a>
+                <a href="#">카카오뱅크</a>
             </div>
             <nav class="menu">
                 <ul>
@@ -100,7 +100,24 @@
 
     <!-- Email Modal -->
     <div id="email-modal" class="modal">
-        <!-- Modal content is the same as before -->
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>제휴 제안 메일 발송</h2>
+            <form id="email-form">
+                <div class="form-group">
+                    <label for="email-subject">제목</label>
+                    <input type="text" id="email-subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-body">내용</label>
+                    <textarea id="email-body" rows="8" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">발송</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary">취소</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="main.js"></script>
