@@ -31,6 +31,91 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.getElementById('service-table-body');
     const affiliateCount = document.getElementById('affiliate-count');
     const emailForm = document.getElementById('email-form');
+    let performanceChart = null; // To hold the chart instance
+
+    // Function to render the performance chart
+    const renderPerformanceChart = () => {
+        const ctx = document.getElementById('performance-chart').getContext('2d');
+        if (performanceChart) {
+            performanceChart.destroy(); // Destroy previous chart instance
+        }
+        performanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['11.05', '11.06', '11.07', '11.08', '11.09', '11.10', '11.11', '11.12'],
+                datasets: [
+                    {
+                        label: '노출수',
+                        data: [450000, 554469, 580000, 520000, 580000, 650000, 250000, 150000],
+                        backgroundColor: '#FFD166',
+                        yAxisID: 'y-axis-impressions',
+                    },
+                    {
+                        label: 'CTR',
+                        data: [48, 46.95, 50, 49, 50, 52, 20, 10],
+                        type: 'line',
+                        borderColor: '#EF476F',
+                        yAxisID: 'y-axis-ctr',
+                        tension: 0.4,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    'y-axis-impressions': {
+                        type: 'linear',
+                        position: 'left',
+                        beginAtZero: true,
+                         max: 800000
+                    },
+                    'y-axis-ctr': {
+                        type: 'linear',
+                        position: 'right',
+                        beginAtZero: true,
+                        max: 60,
+                        grid: {
+                            drawOnChartArea: false, 
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.dataset.label === '노출수') {
+                                    label += context.parsed.y.toLocaleString();
+                                } else if (context.dataset.label === 'CTR') {
+                                    label += context.parsed.y + '%';
+                                }
+                                 if (context.dataIndex === 1 && context.dataset.label === '노출수') {
+                                    return [
+                                        `노출수: 554,469`,
+                                        `클릭수: 260,349`,
+                                        `CTR: 46.95%`
+                                    ];
+                                }
+
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    };
 
     // Function to switch between pages
     const showPage = (pageId) => {
@@ -40,6 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const activePage = document.getElementById(`${pageId}-section`);
         if (activePage) {
             activePage.classList.remove('hidden');
+        }
+        if (pageId === 'dashboard') {
+            renderPerformanceChart();
         }
     };
 
