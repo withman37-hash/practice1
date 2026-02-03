@@ -23,7 +23,7 @@
         <main class="content">
             <header class="header">
                 <div class="header-left">
-                    <h1 id="page-title">서비스 관리</h1>
+                    <h1 id="page-title">B2B 사업 제휴사 리스트</h1>
                 </div>
                 <div class="header-right">
                     <div class="user-info">
@@ -42,51 +42,19 @@
                     <table>
                         <thead>
                             <tr>
-                                <th><input type="checkbox" id="select-all"></th>
-                                <th>번호</th>
-                                <th>분류</th>
-                                <th>제휴서비스명</th>
-                                <th>제휴연동사</th>
-                                <th>연동시작일</th>
-                                <th>상태</th>
+                                <th>제휴사</th>
+                                <th>생활 밀착 (빈도)</th>
+                                <th>공공 신뢰 (가치)</th>
+                                <th>데이터 확보 (이종)</th>
+                                <th>기술 검증 (연동)</th>
+                                <th>종합 등급</th>
                             </tr>
                         </thead>
                         <tbody id="service-table-body">
-                            <!-- Service list rows will be injected here by JavaScript -->
+                            <!-- Affiliate list rows will be injected here by JavaScript -->
                         </tbody>
                     </table>
                 </div>
-            </section>
-
-            <!-- Service Detail View -->
-            <section id="service-detail-view" style="display: none;">
-              <form id="detail-form">
-                <div class="detail-group">
-                  <label for="detail-partner">제휴연동사</label>
-                  <input type="text" id="detail-partner" readonly>
-                </div>
-                <div class="detail-group">
-                  <label for="detail-service-name">서비스 명</label>
-                  <input type="text" id="detail-service-name">
-                </div>
-                <div class="detail-group">
-                  <label for="detail-service-description">서비스 설명</label>
-                  <textarea id="detail-service-description" rows="6"></textarea>
-                </div>
-                <div class="detail-group">
-                  <label>서비스 접근 설정</label>
-                  <div class="radio-group">
-                    <input type="radio" id="access-all" name="access" value="all" checked>
-                    <label for="access-all">전사 설정</label>
-                    <input type="radio" id="access-restricted" name="access" value="restricted">
-                    <label for="access-restricted">권한 설정</label>
-                  </div>
-                </div>
-                <div class="detail-actions">
-                  <button type="submit" class="btn btn-primary">저장</button>
-                  <button type="button" class="btn btn-secondary" id="back-to-list-btn">목록으로 이동</button>
-                </div>
-              </form>
             </section>
 
         </main>
