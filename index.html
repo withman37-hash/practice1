@@ -12,18 +12,26 @@
         <aside class="sidebar">
             <div class="logo">
                 <a href="#">kakaobank</a>
+                <span class="admin-title">제휴사 관리 어드민</span>
             </div>
             <nav class="menu">
-                <ul>
-                    <li><a href="#" class="active">B2B 사업 제휴사 리스트</a></li>
-                    <li><a href="#">제휴 제안 메일 발송</a></li>
+                 <ul>
+                    <li class="menu-group">
+                        <a href="#" class="menu-group-title">제휴사 관리</a>
+                        <ul class="submenu">
+                            <li><a href="#" data-page="master-list" class="active">1. 후보 발굴 및 선정</a></li>
+                            <li><a href="#" data-page="email">2. 제안 메일 발송/이력</a></li>
+                            <li><a href="#" data-page="contract">3. 계약 및 정산 관리</a></li>
+                            <li><a href="#" data-page="dashboard">4. 성과 분석</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </aside>
         <main class="content">
             <header class="header">
                 <div class="header-left">
-                    <h1>B2B 사업 제휴사 리스트</h1>
+                    <h1 id="page-title">후보 발굴 및 선정</h1>
                 </div>
                 <div class="header-right">
                     <div class="search-bar">
@@ -36,33 +44,70 @@
                     </div>
                 </div>
             </header>
-            <section class="service-list">
-                <div class="list-header">
-                    <h2 id="affiliate-count">전체 5개</h2>
-                </div>
-                <div class="list-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th rowspan="2">NO</th>
-                                <th rowspan="2">분류</th>
-                                <th rowspan="2">제휴사</th>
-                                <th colspan="4">선정 조건</th>
-                                <th rowspan="2">종합 등급</th>
-                            </tr>
-                            <tr>
-                                <th>생활 밀착 (빈도)</th>
-                                <th>공공 신뢰 (가치)</th>
-                                <th>데이터 확보 (이종)</th>
-                                <th>기술 검증 (연동)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="service-table-body">
-                            <!-- Rows will be injected by JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+
+            <!-- Page Sections -->
+            <div id="page-content-wrapper">
+                <!-- 후보 발굴 및 선정 -->
+                <section id="master-list-section" class="page-section">
+                    <div class="list-header">
+                        <h2 id="affiliate-count">전체 5개</h2>
+                    </div>
+                    <div class="list-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">NO</th>
+                                    <th rowspan="2">분류</th>
+                                    <th rowspan="2">제휴사</th>
+                                    <th colspan="4">선정 조건</th>
+                                    <th rowspan="2">종합 등급</th>
+                                </tr>
+                                <tr>
+                                    <th>생활 밀착 (빈도)</th>
+                                    <th>공공 신뢰 (가치)</th>
+                                    <th>데이터 확보 (이종)</th>
+                                    <th>기술 검증 (연동)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="service-table-body">
+                                <!-- Rows will be injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 제안 메일 발송/이력 -->
+                <section id="email-section" class="page-section hidden">
+                    <div class="email-form-container">
+                        <h3>제안 메일 발송</h3>
+                        <form id="email-form">
+                            <div class="form-group">
+                                <label for="recipient">받는 사람</label>
+                                <input type="email" id="recipient" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">제목</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="body">내용</label>
+                                <textarea id="body" class="form-control" rows="10" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="attachment">첨부 파일</label>
+                                <input type="file" id="attachment" class="form-control-file">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">발송</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Placeholder Pages -->
+                <section id="contract-section" class="page-section hidden"><h2>준비중인 페이지입니다.</h2></section>
+                <section id="dashboard-section" class="page-section hidden"><h2>준비중인 페이지입니다.</h2></section>
+            </div>
         </main>
     </div>
     <script src="main.js"></script>
